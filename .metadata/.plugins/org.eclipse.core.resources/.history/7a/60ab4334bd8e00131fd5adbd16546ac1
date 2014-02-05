@@ -94,10 +94,10 @@ obj8.name = "Cylinder";
 obj8.radius = 4;
 obj8.height = 6;
 obj8.volume = function(){
-	return 3.14 * (obj8.radius * obj8.radius) * obj8.height;
+	return 3.14 * (obj8.radius * obj8.radius) * obj.height;
 };
 obj8.announce =function() {
-	return 'I am a ' + obj8.name + '.\nMy radius is ' + obj8.radius + '.\nMy height is ' + obj8.height + '.\nAnd I have an volume of ' + obj8.volume() + '.';
+	return 'I am a ' + obj8.name + '.\nMy radius is ' + obj8.radius + '.\nMy height is ' + obj8.width + '.\nAnd I have an volume of ' + obj8.volume() + '.';
 };
 
 var obj9 = new Object();
