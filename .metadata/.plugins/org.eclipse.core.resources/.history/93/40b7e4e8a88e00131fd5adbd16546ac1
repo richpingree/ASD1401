@@ -12,27 +12,25 @@ var viewContainer = Ti.UI.createScrollView({
 
 function objectViews() {
 	for (i=0; i<myData.data.length; i++){
-		var announceView = Ti.UI.createView({
-			backgroundColor: "#000",
+		var view = Ti.UI.createView({
+			backgroundColor: "#fff",
 			height: 100
 		});
 		
-		var announceText = Ti.UI.createLabel({
-			color: "#fff",
+		var label = Ti.UI.createLabel({
+			color: "#000",
 			text: myData.data[i].announce(),
 			font: {fontSize: 15, fontFamily: "Times New Roman"},
 			textalign: "center",
-			width: "auto",
-			top: 5
+			width: "auto"
 			
 		});
-		announceView.add(announceText);
-		viewContainer.add(announceView);
+		view.add(label);
+		viewContainer(view);
 		mainWin.add(viewContainer);
 	};
 	
 };
 
-objectViews();
 
 mainWin.open();

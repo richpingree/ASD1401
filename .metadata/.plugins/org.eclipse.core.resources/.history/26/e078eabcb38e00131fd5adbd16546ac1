@@ -1,0 +1,118 @@
+var obj = {
+	name : "Pen",
+	length : 4,
+	width : 5,
+	area : function() {
+		return obj.length * obj.width;
+	},
+	announce : function() {
+		return 'I am ' + this.name + '. My length is ' + this.length + '. My width is ' + this.width + '. And I have an area of ' + this.area() + '.';
+	}
+};
+
+var obj1 = {
+	name : "Object 2",
+	length : 4,
+	width : 5,
+	area : function() {
+		return obj1.length * obj1.width;
+	},
+	announce : function() {
+		return 'I am ' + this.name + '. My length is ' + this.length + '. My width is ' + this.width + '. And I have an area of ' + this.area() + '.';
+	}
+};
+
+var obj2 = {
+	name : "Object 3",
+	length : 4,
+	width : 5,
+	area : function() {
+		return obj2.length * obj2.width;
+	},
+	announce : function() {
+		return 'I am ' + this.name + '. My length is ' + this.length + '. My width is ' + this.width + '. And I have an area of ' + this.area() + '.';
+	}
+};
+
+var obj3 = {
+	name : "Object 4",
+	length : 4,
+	width : 5,
+	area : function() {
+		return obj3.length * obj3.width;
+	},
+	announce : function() {
+		return 'I am ' + this.name + '. My length is ' + this.length + '. My width is ' + this.width + '. And I have an area of ' + this.area() + '.';
+	}
+};
+
+var obj4 = {
+	name : "Object 5",
+	length : 4,
+	width : 5,
+	area : function() {
+		return obj4.length * obj4.width;
+	},
+	announce : function() {
+		return 'I am ' + this.name + '. My length is ' + this.length + '. My width is ' + this.width + '. And I have an area of ' + this.area() + '.';
+	}
+};
+
+var obj5 = new Object();
+obj5.name = "";
+obj5.length = 4;
+obj5.width = 5;
+obj5.area = function(){
+	return obj5.length * obj5.width;
+};
+obj5.announce =function() {
+	return 'I am ' + obj5.name + '. My length is ' + obj5.length + '. My width is ' + obj5.width + '. And I have an area of ' + obj5.area() + '.';
+};
+
+var obj6 = new Object();
+obj6.name = "";
+obj6.length = 4;
+obj6.width = 5;
+obj6.area = function(){
+	return obj6.length * obj6.width;
+};
+obj6.announce =function() {
+	return 'I am ' + obj6.name + '. My length is ' + obj6.length + '. My width is ' + obj6.width + '. And I have an area of ' + obj6.area() + '.';
+};
+
+var obj7 = new Object();
+obj7.name = "";
+obj7.length = 4;
+obj7.width = 5;
+obj7.area = function(){
+	return obj7.length * obj7.width;
+};
+obj7.announce =function() {
+	return 'I am ' + obj7.name + '. My length is ' + obj7.length + '. My width is ' + obj7.width + '. And I have an area of ' + obj7.area() + '.';
+};
+
+var obj8 = new Object();
+obj8.name = "";
+obj8.length = 4;
+obj8.width = 5;
+obj8.area = function(){
+	return obj8.length * obj8.width;
+};
+obj8.announce =function() {
+	return 'I am ' + obj8.name + '. My length is ' + obj8.length + '. My width is ' + obj8.width + '. And I have an area of ' + obj8.area() + '.';
+};
+
+var obj9 = new Object();
+obj9.name = "";
+obj9.length = 4;
+obj9.width = 5;
+obj9.area = function(){
+	return obj9.length * obj9.width;
+};
+obj9.announce =function() {
+	return 'I am ' + obj9.name + '. My length is ' + obj9.length + '. My width is ' + obj9.width + '. And I have an area of ' + obj9.area() + '.';
+};
+
+var myArray = [obj, obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9];
+
+exports.data = myArray;

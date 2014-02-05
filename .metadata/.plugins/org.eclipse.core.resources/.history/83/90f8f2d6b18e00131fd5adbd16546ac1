@@ -13,7 +13,7 @@ var viewContainer = Ti.UI.createScrollView({
 function objectViews() {
 	for (i=0; i<myData.data.length; i++){
 		var announceView = Ti.UI.createView({
-			backgroundColor: "#000",
+			backgroundColor: "#fff",
 			height: 100
 		});
 		
