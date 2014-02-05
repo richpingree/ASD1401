@@ -1,15 +1,15 @@
 var myData = require('data');
-//Main Window
+
 var mainWin = Ti.UI.createWindow({
 	backgroundColor: "#0202CF"
 });
-//Container for data
+
 var viewContainer = Ti.UI.createScrollView({
 	showVerticalScaleIndicator: true,
 	layout: "vertical"
 	
 });
-//Array loop that creates views and labels
+
 function objectViews() {
 	for (i=0; i<myData.data.length; i++){
 		var announceView = Ti.UI.createView({
