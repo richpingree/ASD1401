@@ -1,5 +1,6 @@
 var remoteData = require('remote');
 
+
 var event = table.addEventListener("click", function(e){
 	var newWin = Ti.UI.createWindow({
 		backgroundColor: "blue",
