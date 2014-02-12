@@ -1,0 +1,20 @@
+var remoteData = require('remote');
+
+var table = Ti.UI.createTableView({
+	
+});
+
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "Blue"
+	
+});
+
+table.addEventListener("click", function(e){
+	var newWin = Ti.UI.createWindow({
+		backgroundColor: "blue",
+		title: e.source.title
+	});
+});	
+mainWin.add(table);
+
+mainWin.open();

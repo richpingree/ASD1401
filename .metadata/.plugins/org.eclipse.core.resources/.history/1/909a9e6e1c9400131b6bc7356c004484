@@ -21,22 +21,18 @@ table.addEventListener("click", function(e){
 		title: e.source.title
 	});
 	var remoteData1 = Ti.UI.createLabel({
-		top: 100,
 		font: {fontSize: 15, FontFamily: "Times New Roman"},
 		backgroundColor: "white",
 		text: "Title: " + e.source.state, 
 		textalign: "center",
-		height: 100,
 		width: "auto"
 	});
 	var remoteData2 = Ti.UI.createLabel({
 		font: {fontSize: 15, FontFamily: "Times New Roman"},
-		backgroundColor: "gray",
+		backgroundColor: "grey",
 		text: "Score: " + e.source.score,
 		textalign: "center",
-		width: "auto",
-		top: (remoteData1.height + remoteData1.top) + 10
-		
+		width: "auto"
 	});
 	newWin.add(remoteData1, remoteData2);
 	navWin.openWindow(newWin, {animate: true});

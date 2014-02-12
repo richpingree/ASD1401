@@ -14,7 +14,7 @@ var remoteResponse = function(){
 		
 	});
 	
-	for(var i = 0; i<json.data.children.length; i++){
+	for(var i = 0; i<10; i++){
 		var theRow = Ti.UI.createTableViewRow({
 			title: json.data.children[i].data.author,
 			state: json.data.children[i].data.title,

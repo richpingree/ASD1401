@@ -26,16 +26,15 @@ table.addEventListener("click", function(e){
 		backgroundColor: "white",
 		text: "Title: " + e.source.state, 
 		textalign: "center",
-		height: 100,
 		width: "auto"
 	});
 	var remoteData2 = Ti.UI.createLabel({
 		font: {fontSize: 15, FontFamily: "Times New Roman"},
-		backgroundColor: "gray",
+		backgroundColor: "grey",
 		text: "Score: " + e.source.score,
 		textalign: "center",
 		width: "auto",
-		top: (remoteData1.height + remoteData1.top) + 10
+		top: remoteData1.bottom + 10
 		
 	});
 	newWin.add(remoteData1, remoteData2);

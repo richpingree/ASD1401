@@ -26,7 +26,6 @@ table.addEventListener("click", function(e){
 		backgroundColor: "white",
 		text: "Title: " + e.source.state, 
 		textalign: "center",
-		height: 100,
 		width: "auto"
 	});
 	var remoteData2 = Ti.UI.createLabel({
@@ -35,7 +34,7 @@ table.addEventListener("click", function(e){
 		text: "Score: " + e.source.score,
 		textalign: "center",
 		width: "auto",
-		top: (remoteData1.height + remoteData1.top) + 10
+		top: remoteData1.top + 10
 		
 	});
 	newWin.add(remoteData1, remoteData2);

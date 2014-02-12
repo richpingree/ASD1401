@@ -1,0 +1,29 @@
+var remoteData = require('remote');
+
+var table = Ti.UI.createTableView({
+	
+});
+
+var mainWin = Ti.UI.createWindow({
+	title: "api.reddit.com",
+	backgroundColor: "Blue",
+	modal: true
+	
+});
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+	
+});
+
+table.addEventListener("click", function(e){
+	var newWin = Ti.UI.createWindow({
+		backgroundColor: "blue",
+		title: e.source.title
+	});
+	var remoteData = Ti.UI.createLabel({
+		text: e.source.author,
+	});
+	navWin.openWindow(newWin, {animate: true});
+});	
+mainWin.add(table);
+navWin.open();
