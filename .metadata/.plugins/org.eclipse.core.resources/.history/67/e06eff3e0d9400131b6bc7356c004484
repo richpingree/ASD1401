@@ -16,15 +16,15 @@ var remoteResponse = function(){
 	
 	for(var i = 0; i<10; i++){
 		var theRow = Ti.UI.createTableViewRow({
-			title: json.data.children[i].data.author,
-			state: json.data.children[i].data.title,
+			title: json.data.children[i].data.title,
+			author: json.data.children[i].data.author,
 			score: json.data.children[i].data.score,
 			hasChild: true
 		});
 		tableSecs.add(theRow);
 	};
 	sections.push(tableSecs);
-	table.setData(sections);
+	
 	// Ti.API.debug(testTitle);
 	// Ti.API.debug(testAuthor);
 	// Ti.API.debug(testScore);
@@ -48,4 +48,4 @@ xhr.open('GET', "http://api.reddit.com/");
 
 xhr.send();
 
-exports.remote = xhr;
+exports.remote = remoteResponse;

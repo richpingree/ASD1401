@@ -30,6 +30,12 @@ var remoteResponse = function(){
 	// Ti.API.debug(testScore);
 };
 
+table.addEventListener("click", function(e){
+	var newWin = Ti.UI.createWindow({
+		backgroundColor: "blue",
+		title: e.source.title
+	});
+});
 var remoteError = function(e){
 	Ti.API.debug("Status: " + this.status);
 	Ti.API.debug("Text: " + this.responseText);

@@ -14,7 +14,6 @@ table.addEventListener("click", function(e){
 		backgroundColor: "blue",
 		title: e.source.title
 	});
-});	
 mainWin.add(table);
 
 mainWin.open();
