@@ -7,13 +7,9 @@ var remoteResponse = function(){
 	Ti.API.debug(this.responseText);
 	
 	var json = JSON.parse(this.responseText);
-	
-//console test for success	
-	var testTitle = json.data.children[0].data.title;
-	var testAuthor = json.data.children[0].data.author;
-	var testScore = json.data.children[0].data.score;
-	
-//creates table sections and rows
+	// var testTitle = json.data.children[0].data.title;
+	// var testAuthor = json.data.children[0].data.author;
+	// var testScore = json.data.children[0].data.score;
 	var tableSecs = Ti.UI.createTableViewSection({
 		
 	});
@@ -29,11 +25,9 @@ var remoteResponse = function(){
 	};
 	sections.push(tableSecs);
 	table.setData(sections);
-	
-//console calls for test
-	Ti.API.debug(testTitle);
-	Ti.API.debug(testAuthor);
-	Ti.API.debug(testScore);
+	// Ti.API.debug(testTitle);
+	// Ti.API.debug(testAuthor);
+	// Ti.API.debug(testScore);
 };
 
 var remoteError = function(e){
