@@ -1,4 +1,4 @@
-//var remoteData = require('remote');
+var remoteData = require('remote');
 
 
  var table = Ti.UI.createTableView({ 	

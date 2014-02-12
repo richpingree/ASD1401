@@ -1,8 +1,9 @@
 //var remoteData = require('remote');
+var remoteEvent = require('event');
 
-
- var table = Ti.UI.createTableView({ 	
-});
+// var table = Ti.UI.createTableView({
+// 	
+// });
 
 var mainWin = Ti.UI.createWindow({
 	title: "api.reddit.com",
@@ -41,6 +42,5 @@ var navWin = Ti.UI.iOS.createNavigationWindow({
 	// newWin.add(remoteData1, remoteData2);
 	// navWin.openWindow(newWin, {animate: true});
 // });	
-var remoteEvent = require('event');
-mainWin.add(table);
+// mainWin.add(table);
 navWin.open();
