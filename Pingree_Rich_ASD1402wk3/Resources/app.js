@@ -1,18 +1,19 @@
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.UI.setBackgroundColor('#fff');
+Ti.UI.setBackgroundColor('#fff');
+
+var remotedb = require('database');
 
 // create tab group
-var tabGroup = Titanium.UI.createTabGroup();
+var tabGroup = Ti.UI.createTabGroup();
 
 
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
+
+// create tabs and windows
+var win1 = Ti.UI.createWindow({  
+    title:'Entry Form',
     backgroundColor:'blue'
 });
-var tab1 = Titanium.UI.createTab({  
+var tab1 = Ti.UI.createTab({  
     icon:'KS_nav_views.png',
     title:'Tab 1',
     window:win1
@@ -50,34 +51,26 @@ var submitButton = Ti.UI.createButton({
 });
 win1.add(textfield1, textfield2, submitButton);
 
-//
+
 // create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
+
+var win2 = Ti.UI.createWindow({  
+    title:'Database',
     backgroundColor:'#fff'
 });
-var tab2 = Titanium.UI.createTab({  
+var tab2 = Ti.UI.createTab({  
     icon:'KS_nav_ui.png',
     title:'Tab 2',
     window:win2
 });
 
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
 
-win2.add(label2);
+win2.add();
 
 
 
-//
 //  add tabs
-//
+
 tabGroup.addTab(tab1);  
 tabGroup.addTab(tab2);  
 

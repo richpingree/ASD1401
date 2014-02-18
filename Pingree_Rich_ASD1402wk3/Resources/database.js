@@ -8,3 +8,5 @@ var table = Ti.UI.createTableView({
 	data:data,
 	top: 50
 });
+
+exports.database = database;
