@@ -1,12 +1,23 @@
-// Open SQLite, create one if not exist
-var db = Titanium.Database.open("names");
-db.excute('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT)');
+function getRowData(){
+	var newData = [];
+	
+	var rows = db.execute("SELECT * FROM names");
+	while (rows.isValidRow()) {
+		var id, fname, lname;
+		
+		id = rows.fieldByName('id');
+		fname = row.fieldByName('firstname');
+		lname = row.fieldByName('lastname');
+		
+		newData.push({
+			title: fname + " " + lname,
+			id:id
+		});
+		rows.next();
+	}
+	return newData;
+};
 
 var data = getRowData();
-
-var table = Ti.UI.createTableView({
-	data:data,
-	top: 50
-});
-
-exports.database = database;
+table.setData(data);
+exports.database = db;

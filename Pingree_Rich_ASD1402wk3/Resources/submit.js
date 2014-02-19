@@ -1,0 +1,37 @@
+var submit = function(){
+	if (firstNameField.value == '' && lastNameField.value == '' && yearField.value == ''){
+		alert("First Name, Last Name, and Year are required.");
+	}else if (firstNameField.value == ''){
+		alert("First Name is required.");
+	}else if (lastNameField.value == ''){
+		alert("Last Name is required.");
+	}else if (yearField.value == ''){
+		alert("Birth year is required");
+	}else {
+		var userInput = {};
+			userInput.firstName = firstNameField.value;
+			userInput.lastName = lastNameField.value;
+			userInput.birthYear = yearField.value;
+			
+			//Clear
+			firstNameField.value = '';
+			lastNameField.value ='';
+			yearField.value ='';
+			
+			//keyboard
+			firstNameField.blur;
+			lastNameField.blur;
+			yearField.blur;
+			
+			//set data
+			db.execute('INSERT INTO names (firstName, lastName, birthYear) VALUES (?,?,?)', userInput.firstName, userInput.lastName, userInput.birthYear);
+			
+			data = getRowData();
+			table.setData(data);
+			
+			alert(userInput.firstName + " " + userInput.lastName + ' has been saved.');
+	}
+	
+};
+submitButton.addEventListener('click', submit);
+exports.submit = submit;

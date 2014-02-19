@@ -1,0 +1,15 @@
+function getRowData(){
+	var newData = [];
+	
+	var rows = db.execute("SELECT * FROM names");
+	while (rows.isValidRow()) {
+		var parseData = unescape(rows.fieldByName('firstName, lastName'));
+		var displayData = JSON.parse(parseData);
+		newdata.push({
+			title: displayData,
+			id: rows.fieldByName('id')
+		});
+		rows.next();
+	}
+	return newdata;
+};

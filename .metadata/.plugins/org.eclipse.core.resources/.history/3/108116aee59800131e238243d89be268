@@ -1,0 +1,29 @@
+//var rowsRemote = require('rows');
+
+// Open SQLite, create one if not exist
+var db = Titanium.Database.open("names");
+db.execute('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT)');
+
+var data = getRowData();
+
+var table = Ti.UI.createTableView({
+	data:data,
+	top: 50
+});
+
+function getRowData(){
+	var newData = [];
+	
+	var rows = db.execute("SELECT * FROM names");
+	while (rows.isValidRow()) {
+		var parseData = unescape(rows.fieldByName('firstName, lastName'));
+		var displayData = JSON.parse(parseData);
+		newdata.push({
+			title: displayData,
+			id: rows.fieldByName('id')
+		});
+		rows.next();
+	}
+	return newData;
+};
+exports.database = database;

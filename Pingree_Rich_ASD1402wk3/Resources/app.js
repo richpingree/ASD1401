@@ -1,7 +1,17 @@
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Ti.UI.setBackgroundColor('#fff');
 
-var remotedb = require('database');
+
+// Open SQLite, create one if not exist
+var db = Ti.Database.open("names");
+db.execute('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT, birthYear INTEGER)');
+ 
+var data = getRowData();
+ 
+var table = Ti.UI.createTableView({
+	data:data,
+	top: 50
+});
 
 // create tab group
 var tabGroup = Ti.UI.createTabGroup();
@@ -19,24 +29,36 @@ var tab1 = Ti.UI.createTab({
     window:win1
 });
 
-var textfield1 = Ti.UI.createTextField({
+
+// input fields
+var firstNameField = Ti.UI.createTextField({
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	color: "#336699",
 	height: 30,
-	width: 125,
+	width: 250,
 	top: 10,
-	left: 10,
+	//left: 10,
 	hintText: "First Name"
 });
 
-var textfield2 = Ti.UI.createTextField({
+var lastNameField = Ti.UI.createTextField({
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	color: "#336699",
 	height: 30,
-	width: 125,
-	top: 10,
-	right: 10,
+	width: 250,
+	top: (firstNameField.top + firstNameField.height) + 10,
+	//left: 10,
 	hintText: "Last Name"
+});
+
+var yearField = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "336699",
+	height: 30,
+	width: 250,
+	top: (lastNameField.top + lastNameField.height) + 10,
+	//left: 10,
+	hintText: "Year of Birth"
 });
 
 var submitButton = Ti.UI.createButton({
@@ -45,11 +67,16 @@ var submitButton = Ti.UI.createButton({
 	color: "black",
 	borderRadius: 5,
 	height: 30,
-	width: 125,
-	top: (textfield1.top + textfield1.height) + 10
+	width: 150,
+	top: (yearField.top + yearField.height) + 10
 	
 });
-win1.add(textfield1, textfield2, submitButton);
+
+var remoteSubmit = require('submit');
+
+
+
+win1.add(firstNameField, lastNameField, yearField, submitButton);
 
 
 // create controls tab and root window
@@ -63,9 +90,29 @@ var tab2 = Ti.UI.createTab({
     title:'Tab 2',
     window:win2
 });
+function getRowData(){
+	var newData = [];
+	
+	var rows = db.execute("SELECT * FROM names");
+	while (rows.isValidRow()) {
+		var id, fname, lname, year;
+		
+		id = rows.fieldByName('id');
+		fname = rows.fieldByName('firstname');
+		lname = rows.fieldByName('lastname');
+		year = rows.fieldByName('birthYear');
+		
+		newData.push({
+			title: fname + " " + lname + " " + year,
+			id:id
+		});
+		rows.next();
+	}
+	return newData;
+};
 
 
-win2.add();
+win2.add(table);
 
 
 

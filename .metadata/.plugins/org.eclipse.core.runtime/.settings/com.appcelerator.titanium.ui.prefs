@@ -1,6 +1,6 @@
 =run
 Android\ Emulator\ Process\:ConsoleLogLevel=Info
-LAST_LAUNCH_TIMESTAMP=1392574226992
+LAST_LAUNCH_TIMESTAMP=1392755896094
 Pingree_Rich_ASD1402wk1\:launchMode=run
 Pingree_Rich_ASD1402wk1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
 Pingree_Rich_ASD1402wk2\:launchMode=run
@@ -11,3 +11,5 @@ eclipse.preferences.version=1
 iOS\ build\ and\ deploy\:ConsoleLogLevel=Debug
 preference.show.console.onError=true
 preference.studio.perspective.version=103
+test\:launchMode=run
+test\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
