@@ -59,22 +59,22 @@ editWin.add(editFirstName, editLastName, editYear, saveButton, cancelButton);
 table.addEventListener('click', function(e){
 	var id = e.rowData.id;
 	
-	var currentEntryRow = db.execute('SELECT * FROM names WHERE ID=?', id);
+	var currentRow = db.execute('SELECT * FROM names WHERE ID=?', id);
 	
-	var rowEntryData = {};
-		rowEntryData.id = currentEntryRow.fieldByName('id');
-		rowEntryData.first = currentEntryRow.fieldByName('firstName');
-		rowEntryData.last = currentEntryRow.fieldByName('lastName');
-		rowEntryData.year = currentEntryRow.fieldByName('birthYear');
+	var rowData = {};
+		rowData.id = currentRow.fieldByName('id');
+		rowData.first = currentRow.fieldByName('firstName');
+		rowData.last = currentRow.fieldByName('lastName');
+		rowData.year = currentRow.fieldByName('birthYear');
 		
 	var options = Ti.UI.createOptionDialog(selections);
 	
 	options.addEventListener('click', function(e){
 		if(e.index === 0) {
 			
-			editFirstName.value = rowEntryData.first;
-			editLastName.value = rowEntryData.last;
-			editYear.value = rowEntryData.year;
+			editFirstName.value = rowData.first;
+			editLastName.value = rowData.last;
+			editYear.value = rowData.year;
 			
 			editWin.open();
 			

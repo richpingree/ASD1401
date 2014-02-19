@@ -72,7 +72,7 @@ table.addEventListener('click', function(e){
 	options.addEventListener('click', function(e){
 		if(e.index === 0) {
 			
-			editFirstName.value = rowEntryData.first;
+			editFirstName.value = rowEnrtyData.first;
 			editLastName.value = rowEntryData.last;
 			editYear.value = rowEntryData.year;
 			
