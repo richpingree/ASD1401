@@ -86,7 +86,7 @@ table.addEventListener('click', function(e){
 				} else if (editLastName.value == ''){
 					alert("Last Name is required.");
 				}else if (editYear.value == '' || editYear.value.length > 4){
-					alert("Birth Year is required or is invalid. Format: xxxx.");
+					alert("Birth Year is required or is invalid Format: xxxx.");
 				}else {
 					var userInput = {};
 						userInput.firstName = editFirstName.value;

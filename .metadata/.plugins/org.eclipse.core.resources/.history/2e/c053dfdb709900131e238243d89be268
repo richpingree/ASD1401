@@ -6,7 +6,7 @@ var submit = function(){
 	}else if (lastNameField.value == ''){
 		alert("Last Name is required.");
 	}else if (yearField.value == '' || yearField.value.length > 4){
-		alert("Birth year is required or is invalid. Format: xxxx");
+		alert("Birth year is required");
 	}else {
 		var userInput = {};
 			userInput.firstName = firstNameField.value;
