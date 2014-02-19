@@ -1,0 +1,132 @@
+var selections = {
+	title: "Edit or Delete Entry?",
+	options: ["Edit", "Cancel", "Delete"],
+	cancel: 1,
+	selectedIndex: 1,
+	destructive: 2,
+	
+};
+
+//edit window
+editWin = Ti.UI.createWindow({
+	title: "Edit or Delete.",
+	backgroundColor: 'blue',
+	layout: 'vertical'
+});
+
+var editFirstName = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "#336699",
+	height: 30,
+	width: 250,
+	top: 30,
+});
+
+var editLastName = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "#336699",
+	height: 30,
+	width: 250,
+});
+
+var editYear = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "336699",
+	height: 30,
+	width: 250,
+});
+
+var saveButton = Ti.UI.createButton({
+	title: "Save",
+	borderRadius: 5,
+	height: 30,
+	width: 250,
+});
+
+var cancelButton = Ti.UI.createButton({
+	title: "Cancel",
+	borderRadius: 5,
+	height: 30,
+	width: 250
+});
+
+editWin.add(editFirstName, editLastName, editYear, saveButton, cancelButton);
+
+table.addEventListener('click', function(e){
+	var id = e.rowData.id;
+	
+	var currentRow = db.execute('SELECT * FROM names WHERE ID=?', id);
+	
+	var rowData = {};
+		rowData.id = currentRow.fieldByName('id');
+		rowData.first = currentRow.fieldByName('firstName');
+		rowData.last = currentRow.fieldByName('lastName');
+		rowData.year = currentRow.fieldByName('birthYear');
+		
+	var options = Ti.UI.createOptionDialog(selections);
+	
+	options.addEventListener('click', function(e){
+		if(e.index === 0) {
+			
+			editFirstName.value = rowData.first;
+			editLastName.value = rowData.last;
+			editYear.value = rowData.year;
+			
+			editWin.open();
+			
+			var editSave = function() {
+				if (editFirstName.value == '' && editLastName.value == '' && editYear.value == ''){
+					alert("First Name, Last Name, and Birth Year are rquired.");
+				} else if (editFirstName.value == ''){
+					alert("First Name is required.");
+				} else if (editLastName.value == ''){
+					alert("Last Name is required.");
+				}else if (editYear.value == ''){
+					alert("Birth Year is required.");
+				}else {
+					var userInput = {};
+						userInput.firstName = editFirstName.value;
+						userInput.lastName = editLastName.value;
+						userInput.birthYear = editYear.value;
+					
+				//Clear
+				editFirstName.value = '';
+				editLastName.value ='';
+				editYear.value ='';
+			
+				//keyboard
+				editFirstName.blur;
+				editLastName.blur;
+				editYear.blur;
+					
+				db.execute("UPDATE names SET firstName=?, lastName=?, birthYear=? WHERE id=?", userInput.firstName, userInput.lastName, userInput.birthYear,id);
+			
+				data = getRowData();
+				table.setData(data);
+				
+				saveButton.removeEventListener('click', editSave);
+				editWin.close();
+				alert('Row updated!');
+				}
+				
+			};
+			saveButton.addEventListener('click', editSave);
+			
+			var cancelEdit = function(){
+				cancelButton.removeEventListener('click', cancelEdit);
+				editWin.close();
+			};
+			cancelButton.addEventListener('click', cancelEdit);
+			
+			editWin.open();
+		}else if (e.index === 2){
+			db.execute('DELETE FROM names WHERE id=?', id);
+			
+			data = getRowData();
+			table.setData(data);
+			
+			alert('Entry has been deleted.');
+		}
+	}) ;
+	options.show();
+});

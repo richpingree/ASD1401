@@ -1,0 +1,40 @@
+editWin = Ti.UI.createWindow({
+	title: "Edit or Delete.",
+	layout: 'vertical'
+});
+
+var editFirstNameField = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "#336699",
+	height: 30,
+	width: 250,
+	top: 30,
+});
+
+var editLastNameField = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "#336699",
+	height: 30,
+	width: 250,
+});
+
+var editYearField = Ti.UI.createTextField({
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	color: "336699",
+	height: 30,
+	width: 250,
+});
+
+var saveButton = Ti.UI.createButton({
+	title: "Save",
+	borderRadius: 5,
+	height: 30,
+	width: 250,
+});
+
+var cancelButton = Ti.UI.createButton({
+	title: "Cancel",
+	borderRadius: 5,
+	height: 30,
+	width: 250
+});

@@ -37,7 +37,6 @@ var firstNameField = Ti.UI.createTextField({
 	height: 30,
 	width: 250,
 	top: 10,
-	//left: 10,
 	hintText: "First Name"
 });
 
@@ -47,7 +46,6 @@ var lastNameField = Ti.UI.createTextField({
 	height: 30,
 	width: 250,
 	top: (firstNameField.top + firstNameField.height) + 10,
-	//left: 10,
 	hintText: "Last Name"
 });
 
@@ -57,7 +55,6 @@ var yearField = Ti.UI.createTextField({
 	height: 30,
 	width: 250,
 	top: (lastNameField.top + lastNameField.height) + 10,
-	//left: 10,
 	hintText: "Year of Birth"
 });
 
@@ -77,6 +74,7 @@ var remoteSubmit = require('submit');
 
 
 win1.add(firstNameField, lastNameField, yearField, submitButton);
+
 
 
 // create controls tab and root window
@@ -111,6 +109,7 @@ function getRowData(){
 	return newData;
 };
 
+require("edit");
 
 win2.add(table);
 
