@@ -1,12 +1,14 @@
 =run
 Android\ Emulator\ Process\:ConsoleLogLevel=Info
-LAST_LAUNCH_TIMESTAMP=1392755896094
+LAST_LAUNCH_TIMESTAMP=1393176480287
 Pingree_Rich_ASD1402wk1\:launchMode=run
 Pingree_Rich_ASD1402wk1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
 Pingree_Rich_ASD1402wk2\:launchMode=run
 Pingree_Rich_ASD1402wk2\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
 Pingree_Rich_ASD1402wk3\:launchMode=run
 Pingree_Rich_ASD1402wk3\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
+Pingree_Rich_ASD1402wk4\:launchMode=run
+Pingree_Rich_ASD1402wk4\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
 eclipse.preferences.version=1
 iOS\ build\ and\ deploy\:ConsoleLogLevel=Debug
 preference.show.console.onError=true
