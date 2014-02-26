@@ -9,7 +9,7 @@ db.execute('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, author TEX
  
 
  
-var data = getRowData();
+//var data = getRowData();
 
 //table
 var table = Ti.UI.createTableView({
