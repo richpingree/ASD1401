@@ -1,10 +1,26 @@
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Titanium.UI.setBackgroundColor('#000');
 
-//table
 
-var table = Ti.UI.createTableView({ 	
+
+// Open SQLite, create one if not exist
+var db = Ti.Database.open("remotedb");
+db.execute('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, author TEXT, title TEXT, score INTEGER)');
+ 
+
+ 
+//var data = getRowData();
+
+//table
+var table = Ti.UI.createTableView({
+	
 });
+
+var table1 = Ti.UI.createTableView({
+	//data:data,
+	top: 50
+});
+
 
 // create tab group
 var tabGroup = Titanium.UI.createTabGroup();
@@ -23,8 +39,8 @@ var tab1 = Titanium.UI.createTab({
     window:win1
 });
 
-
-
+var remoteData = require('remote');
+require('save');
 win1.add(table);
 
 //
@@ -39,12 +55,32 @@ var tab2 = Titanium.UI.createTab({
     title:'Tab 2',
     window:win2
 });
+// function getRowData(){
+	// var newData = [];
+// 	
+	// var theRow = db.execute("SELECT * FROM remotedb");
+	// while (theRow.isValidRow()) {
+		// var id, author, title, score;
+// 		
+		// id = theRow.fieldByName('id');
+		// author = theRow.fieldByName('author');
+		// title = theRow.fieldByName('title');
+		// score = theRow.fieldByName('score');
+// 		
+		// newData.push({
+			// title: author + " " + title + " " + score,
+			// id:id
+		// });
+		// theRow.next();
+	// }
+	// return newData;
+// };
 
 
 //win2.add();
 
 
-var remoteData = require('remote');
+
 //
 //  add tabs
 //

@@ -26,6 +26,7 @@ var remoteResponse = function(){
 			hasChild: true
 		});
 		tableSecs.add(theRow);
+		console.log();
 	};
 	sections.push(tableSecs);
 	table.setData(sections);

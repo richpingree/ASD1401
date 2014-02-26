@@ -32,7 +32,7 @@ var remoteResponse = function(){
 	// Ti.API.debug(testAuthor);
 	// Ti.API.debug(testScore);
 };
-
+console.log(remoteResponse);
 var remoteError = function(e){
 	Ti.API.debug("Status: " + this.status);
 	Ti.API.debug("Text: " + this.responseText);
