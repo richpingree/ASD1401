@@ -40,7 +40,7 @@ var tab1 = Titanium.UI.createTab({
 });
 
 var remoteData = require('remote');
-//require('save');
+require('save');
 win1.add(table);
 
 //
@@ -79,7 +79,7 @@ function getRowData(){
 
 win2.add(table1);
 
-require('edit');
+
 
 //
 //  add tabs

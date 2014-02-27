@@ -79,7 +79,7 @@ function getRowData(){
 
 win2.add(table1);
 
-require('edit');
+
 
 //
 //  add tabs
