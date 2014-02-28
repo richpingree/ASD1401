@@ -1,7 +1,67 @@
 /**
  * @author Richard Pingree
  */
-var remoteData = require('remote');
+var sections = [];
+var json;
+var httpData;
+var theRow;
+
+var remoteResponse = function(){
+	Ti.API.debug(this.responseText);
+	
+	json = JSON.parse(this.responseText);
+	
+//console test for success	
+	var testTitle = json.data.children[0].data.title;
+	var testAuthor = json.data.children[0].data.author;
+	var testScore = json.data.children[0].data.score;
+	
+//creates table sections and rows
+	var tableSecs = Ti.UI.createTableViewSection({
+		
+	});
+	
+	for(var i = 0; i<json.data.children.length; i++){
+		httpData = json.data.children[i];
+		theRow = Ti.UI.createTableViewRow({
+			title: httpData.data.author,
+			state: httpData.data.title,
+			score: httpData.data.score,
+			
+		});
+		tableSecs.add(theRow);
+		console.log();
+	};
+	sections.push(tableSecs);
+	table.setData(sections);
+	
+//console calls for test
+	Ti.API.debug(testTitle);
+	Ti.API.debug(testAuthor);
+	Ti.API.debug(testScore);
+};
+
+var remoteError = function(e){
+	Ti.API.debug("Status: " + this.status);
+	Ti.API.debug("Text: " + this.responseText);
+	Ti.API.debug("Error: " + e.error);
+	
+	
+};
+var xhr = Ti.Network.createHTTPClient({
+
+	onload: remoteResponse,
+	onerror: remoteError,
+	timeout: 5000 
+});
+
+xhr.open('GET', "http://api.reddit.com/");
+
+xhr.send();
+
+exports.remote = xhr;
+
+
 var newWin = Ti.UI.createWindow({
 	backgroundColor: "blue",
 });
@@ -75,7 +135,9 @@ saveWin.add(saveButton, cancelButton);
 
 newWin.addEventListener('click', function(e){
 	var db = Ti.Database.open("remotedb");
-	db.execute('INSERT INTO remotedb(id, author, title, score) VALUES(?,?,?)', e.source.title, e.source.state, e.source.score);
+	db.execute('INSERT INTO remotedb(author, title, score) VALUES(?,?,?)', e.source.title, e.source.state, e.source.score);
 	db.close();
 	createRows();
 });
+
+

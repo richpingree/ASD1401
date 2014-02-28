@@ -75,7 +75,7 @@ function getRowData(){
 
 require("edit");
 
-win2.add(table1);
+win2.add(table);
 
 
 

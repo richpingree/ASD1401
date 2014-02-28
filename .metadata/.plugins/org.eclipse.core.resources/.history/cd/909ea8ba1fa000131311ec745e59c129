@@ -7,14 +7,14 @@ Titanium.UI.setBackgroundColor('#000');
 var db = Ti.Database.open("remotedb");
 db.execute('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, author TEXT, title TEXT, score INTEGER)');
 
-data = getRowData();
+
 //table
 var table = Ti.UI.createTableView({
 	
 });
 
 var table1 = Ti.UI.createTableView({
-	data:data,
+	//data:data,
 	top: 50
 });
 
@@ -52,31 +52,8 @@ var tab2 = Titanium.UI.createTab({
     title:'Tab 2',
     window:win2
 });
-function getRowData(){
-	var newData = [];
-	
-	var rows = db.execute("SELECT * FROM names");
-	while (rows.isValidRow()) {
-		var id, first, last, year;
-		
-		id = rows.fieldByName('id');
-		author = rows.fieldByName('author');
-		title = rows.fieldByName('title');
-		score = rows.fieldByName('score');
-		
-		newData.push({
-			title: author + " " + title + " " + score,
-			id:id
-		});
-		rows.next();
-	}
-	return newData;
-};
 
-require("edit");
-
-win2.add(table1);
-
+// win2.add();
 
 
 

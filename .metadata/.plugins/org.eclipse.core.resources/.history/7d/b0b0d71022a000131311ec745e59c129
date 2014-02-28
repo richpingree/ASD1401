@@ -75,7 +75,7 @@ saveWin.add(saveButton, cancelButton);
 
 newWin.addEventListener('click', function(e){
 	var db = Ti.Database.open("remotedb");
-	db.execute('INSERT INTO remotedb(id, author, title, score) VALUES(?,?,?)', e.source.title, e.source.state, e.source.score);
+	db.execute('INSERT INTO remotedb(id, author, title, score) VALUES(?,?,?)', json.data.children[e.index].data.author, json.data.children[e.index].data.title, json.data.children[e.index].data.score);
 	db.close();
 	createRows();
 });

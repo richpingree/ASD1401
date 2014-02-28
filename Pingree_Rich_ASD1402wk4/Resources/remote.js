@@ -136,8 +136,9 @@ saveWin.add(saveButton, cancelButton);
 newWin.addEventListener('click', function(e){
 	var db = Ti.Database.open("remotedb");
 	db.execute('INSERT INTO remotedb(author, title, score) VALUES(?,?,?)', e.source.title, e.source.state, e.source.score);
-	db.close();
-	createRows();
+	
+	data.getRowData();
+	table1.setData(data);
 });
 
 
